@@ -14,6 +14,8 @@
       });
       if (response.ok) {
         resultMessage = "Thanks you are now signed up for our newsletter.";
+      } else if (response.status === 409) {
+        resultMessage = "You are already signed up for our newsletter.";
       } else {
         resultMessage = "Oh no, something went wrong :(.";
       }
