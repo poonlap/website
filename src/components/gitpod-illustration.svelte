@@ -1,5 +1,5 @@
 <img
-  class="mt-small md:mt-x-large w-full max-w-6xl bg-right-top mx-auto block"
-  src="/images/illustration-crop.jpg"
+  class="mt-small md:mt-medium w-full max-w-4xl bg-right-top mx-auto block"
+  src="/images/illustration-crop.png"
   alt="Gitpod Illustration"
 />

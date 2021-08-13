@@ -1,18 +1,21 @@
-<script>
+<script lang="ts">
   import OpenGraph from "../components/open-graph.svelte";
   import GitpodIllustration from "../components/gitpod-illustration.svelte";
+  import { onMount } from "svelte";
+  
+  onMount(() => {
+    const footer: HTMLElement = document.querySelector('[data-id="footer"]')
+    footer.style.display = 'none'
+  })
 </script>
 
 <style type="text/postcss">
-  header {
-    @apply max-w-full !important;
+  section {
+    @apply pb-0 mt-x-large sm:mt-large;
   }
 
-  h1 {
-    @apply text-h3 !important;
-    @media (max-width: 1040px) {
-      @apply mt-medium;
-    }
+  .h4 {
+    @apply text-h4 mb-micro mt-0 !important;
   }
 </style>
 
@@ -24,8 +27,8 @@
   }}
 />
 
-<header class="card shadow-xl mb-32 text-center sm:mx-8">
-  <h1 class="h5">Unsubscribed</h1>
+<section class="card shadow-xl mb-medium text-center sm:mx-8">
+  <h1 class="h4">Unsubscribed</h1>
   <p class="max-w-2xl text-large mx-auto">
     You have been sucessfully unsubscribed. If you would like to revert it,
     please go to <a
@@ -35,4 +38,4 @@
     >.
   </p>
   <GitpodIllustration />
-</header>
+</section>
