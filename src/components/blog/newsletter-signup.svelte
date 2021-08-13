@@ -4,6 +4,7 @@
   let email;
   let resultMessage = "";
   let isSubmittedOnce = false;
+  let titleText = "Stay updated";
 
   const submitEmail = async () => {
     isSubmittedOnce = true;
@@ -15,7 +16,8 @@
       if (response.ok) {
         resultMessage = "Thanks you are now signed up for our newsletter.";
       } else if (response.status === 409) {
-        resultMessage = "You are already signed up for our newsletter.";
+        resultMessage = "Lean back and relax. The next newsletter will be sent right to your inbox.";
+        titleText = "You are already signed up"
       } else {
         resultMessage = "Oh no, something went wrong :(.";
       }
@@ -26,6 +28,11 @@
 </script>
 
 <style type="text/postcss">
+  form {
+    @media(min-width: 450px) {
+      width: 440px;
+    }
+  }
   input {
     @apply mb-0;
   }
@@ -35,17 +42,17 @@
 </style>
 
 <form
-  class="bg-white shadow-normal rounded-2xl max-w-lg py-small px-xx-small sm:px-small {clazz} relative"
+  class="bg-white shadow-normal rounded-2xl max-w-lg py-small px-xx-small sm:px-small {clazz} relative h-48 md:h-54 lgx:h-60"
   on:submit|preventDefault={submitEmail}
   id="newsletter"
   on:click|stopPropagation
 >
-  <h2 class="h3">Stay updated</h2>
+  <h2 class="h4">{titleText}</h2>
   {#if resultMessage}
-    <p class="my-medium">{resultMessage}</p>
+    <p class="">{resultMessage}</p>
   {:else}
     <p class="text-medium">Sign up now for our newsletter.</p>
-    <div class="flex mt-x-small">
+    <div class="flex mt-micro lgx:mt-x-small">
       <input
         type="email"
         bind:value={email}
